@@ -9,73 +9,38 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
-MySql
-Spring Boot
-```
+* [MySql](https://dev.mysql.com/downloads/installer/)
+* An IDE of your choice (e.g. [eclipse](https://www.eclipse.org/downloads/), [intellij](https://www.jetbrains.com/idea/download/), [spring tools suite](https://spring.io/tools3/sts/all))
+* [JDK 1.8](https://www.oracle.com/java/technologies/downloads/#java8-windows) or higher
+* [Maven](https://maven.apache.org/install.html)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+Clone the repository to your local machine:
 ```
-Give the example
+git clone https://github.com/PauloPenteado/didactic-clinic-jpa.git
 ```
 
-And repeat
+Install MySql and create a sample clinic database. 
 
 ```
-until finished
+CREATE DATABASE IF NOT EXISTS clinic;
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+**Don't forget to update your application.properties with your DB credentials** 
 
-## Running the tests
+No need to worry about DB objects. [Flyway](https://flywaydb.org/documentation/) will take care of it. 
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+Build the project with Maven:
 ```
-Give an example
+mvn clean compile package
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
+Run the project:
 ```
-Give an example
+java -jar target/{newJarFileName}.jar
 ```
 
-## Deployment
+## Check if your project is running as expected following the link below:
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-
-## Authors
-
-
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+http://localhost:8080/api/
